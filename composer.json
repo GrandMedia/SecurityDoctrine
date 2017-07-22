@@ -1,0 +1,40 @@
+{
+  "name": "grand-media/security-doctrine",
+  "description": "GrandMedia SecurityDoctrine",
+  "license": [
+    "BSD-3-Clause",
+    "GPL-2.0",
+    "GPL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Grand Media s.r.o.",
+      "email": "vesely@grandmedia.cz",
+      "homepage": "http://www.grandmedia.cz"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "doctrine/orm": "^2.5",
+    "grand-media/security": "@dev",
+    "kdyby/events": "^3.1",
+    "kdyby/doctrine": "^3.2",
+    "nette/application": "^2.4",
+    "nette/di": "^2.4"
+  },
+  "require-dev": {
+    "nette/tester": "~1.7",
+    "phpstan/phpstan": "^0.7.0",
+    "tracy/tracy": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "GrandMedia\\SecurityDoctrine\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GrandMediaTests\\SecurityDoctrine\\": "tests/"
+    }
+  }
+}

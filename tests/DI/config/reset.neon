@@ -1,0 +1,14 @@
+php:
+    date.timezone: Europe/Prague
+
+extensions:
+    - GrandMedia\Security\DI\SecurityExtension
+    - GrandMedia\SecurityDoctrine\DI\SecurityDoctrineExtension
+    - Kdyby\Annotations\DI\AnnotationsExtension
+    - Kdyby\Console\DI\ConsoleExtension
+    - Kdyby\Events\DI\EventsExtension
+    doctrine: Kdyby\Doctrine\DI\OrmExtension
+
+doctrine:
+    driver: pdo_sqlite
+    memory: true
