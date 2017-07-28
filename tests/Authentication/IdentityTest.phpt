@@ -55,7 +55,7 @@ final class IdentityTest extends \Tester\TestCase
 		Assert::equal([], (new Identity('1', self::PASSWORD, ''))->getRoles());
 	}
 
-	private function createIdentity(): \GrandMediaTests\SecurityDoctrine\Authentication\Mocks\Identity
+	private function createIdentity(): Identity
 	{
 		return new Identity('1', self::PASSWORD, self::ROLE);
 	}
