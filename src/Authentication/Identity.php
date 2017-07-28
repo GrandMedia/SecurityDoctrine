@@ -3,14 +3,14 @@
 namespace GrandMedia\SecurityDoctrine\Authentication;
 
 use Doctrine\ORM\Mapping as ORM;
-use Nette\Security\IIdentity;
 use Nette\Security\Passwords;
 
 /**
  * @ORM\MappedSuperclass
  */
-abstract class Identity implements IIdentity
+abstract class Identity implements \Nette\Security\IIdentity
 {
+
 	/**
 	 * @ORM\Column(type="string")
 	 * @var string
@@ -74,6 +74,9 @@ abstract class Identity implements IIdentity
 		return $this->active;
 	}
 
+	/**
+	 * @return string[]
+	 */
 	public function getRoles(): array
 	{
 		if ($this->role === '') {
@@ -82,4 +85,5 @@ abstract class Identity implements IIdentity
 
 		return [$this->role];
 	}
+
 }

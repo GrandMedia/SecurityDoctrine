@@ -4,6 +4,7 @@ namespace GrandMediaTests\SecurityDoctrine\Authentication\Mocks;
 
 final class Identity extends \GrandMedia\SecurityDoctrine\Authentication\Identity
 {
+
 	/** @var string */
 	private $name;
 
@@ -14,7 +15,6 @@ final class Identity extends \GrandMedia\SecurityDoctrine\Authentication\Identit
 		parent::__construct($password, $role);
 	}
 
-
 	public function getId(): string
 	{
 		return $this->name;
@@ -24,4 +24,5 @@ final class Identity extends \GrandMedia\SecurityDoctrine\Authentication\Identit
 	{
 		return $this->name;
 	}
+
 }

@@ -7,16 +7,16 @@ use GrandMedia\SecurityDoctrine\Authentication\AutomaticLogoutListener;
 use GrandMediaTests\SecurityDoctrine\Authentication\Mocks\Identity;
 use GrandMediaTests\SecurityDoctrine\Authentication\Mocks\UserStorage;
 use Tester\Assert;
-use Tester\TestCase;
 
 require_once __DIR__ . '/../bootstrap.php';
 
 /**
  * @testCase
  */
-final class AutomaticLogoutListenerTest extends TestCase
+final class AutomaticLogoutListenerTest extends \Tester\TestCase
 {
-	public function testCheck()
+
+	public function testCheck(): void
 	{
 		$userStorage = new UserStorage();
 		$identity = new Identity('foo', 'foo');
@@ -29,6 +29,7 @@ final class AutomaticLogoutListenerTest extends TestCase
 
 		Assert::false($userStorage->isAuthenticated());
 	}
+
 }
 
 (new AutomaticLogoutListenerTest())->run();

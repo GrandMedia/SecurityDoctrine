@@ -6,16 +6,16 @@ use GrandMedia\SecurityDoctrine\Authentication\AutomaticLogoutListener;
 use Nette\Configurator;
 use Nette\DI\Container;
 use Tester\Assert;
-use Tester\TestCase;
 
 require_once __DIR__ . '/../bootstrap.php';
 
 /**
  * @testCase
  */
-final class SecurityDoctrineExtensionTest extends TestCase
+final class SecurityDoctrineExtensionTest extends \Tester\TestCase
 {
-	public function testFunctionality()
+
+	public function testFunctionality(): void
 	{
 		$container = $this->createContainer(null);
 
@@ -30,11 +30,12 @@ final class SecurityDoctrineExtensionTest extends TestCase
 		$config->setTempDirectory(TEMP_DIR);
 		$config->addConfig(__DIR__ . '/config/reset.neon');
 		if ($configFile !== null) {
-			$config->addConfig(__DIR__ . "/config/$configFile.neon");
+			$config->addConfig(__DIR__ . \sprintf('/config/%s.neon', $configFile));
 		}
 
 		return $config->createContainer();
 	}
+
 }
 
 (new SecurityDoctrineExtensionTest())->run();
