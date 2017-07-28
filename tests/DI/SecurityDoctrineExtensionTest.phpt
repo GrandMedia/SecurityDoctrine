@@ -10,6 +10,9 @@ use Tester\TestCase;
 
 require_once __DIR__ . '/../bootstrap.php';
 
+/**
+ * @testCase
+ */
 final class SecurityDoctrineExtensionTest extends TestCase
 {
 	public function testFunctionality()

@@ -11,6 +11,9 @@ use Tester\TestCase;
 
 require_once __DIR__ . '/../bootstrap.php';
 
+/**
+ * @testCase
+ */
 final class AutomaticLogoutListenerTest extends TestCase
 {
 	public function testCheck()
