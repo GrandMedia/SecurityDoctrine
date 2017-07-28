@@ -49,11 +49,6 @@ abstract class Identity implements \Nette\Security\IIdentity
 		$this->passwordChanged = true;
 	}
 
-	public function rehashPassword(): void
-	{
-		$this->password = Passwords::hash($this->password);
-	}
-
 	public function activate(): void
 	{
 		$this->active = true;
