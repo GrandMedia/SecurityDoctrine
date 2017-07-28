@@ -23,8 +23,8 @@
     "nette/di": "^2.4"
   },
   "require-dev": {
+    "nette/bootstrap": "^2.4",
     "nette/tester": "~1.7",
-    "phpstan/phpstan": "^0.7.0",
     "tracy/tracy": "^2.4"
   },
   "autoload": {
