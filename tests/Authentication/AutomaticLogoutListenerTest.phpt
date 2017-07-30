@@ -28,6 +28,22 @@ final class AutomaticLogoutListenerTest extends \Tester\TestCase
 		$listener->check();
 
 		Assert::false($userStorage->isAuthenticated());
+		Assert::same($identity, $userStorage->getIdentity());
+	}
+
+	public function testCheckNotFoundEntity(): void
+	{
+		$userStorage = new UserStorage();
+		$identity = new Identity('foo', 'foo', '', false);
+		$userStorage->setAuthenticated(true);
+		$userStorage->setIdentity($identity);
+		$listener = new AutomaticLogoutListener(new AuthenticationManager($userStorage));
+
+		$identity->deactivate();
+		$listener->check();
+
+		Assert::false($userStorage->isAuthenticated());
+		Assert::type('null', $userStorage->getIdentity());
 	}
 
 }
