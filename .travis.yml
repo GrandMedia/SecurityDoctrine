@@ -16,7 +16,7 @@ matrix:
     env: PHPSTAN=1
   - php: 7.1
     env: CODING_STANDARD=1
-    php: 7.1
+  - php: 7.1
     env: COVERAGE="--coverage coverage.xml --coverage-src src" TESTER_RUNTIME="phpdbg"
 
 install:
