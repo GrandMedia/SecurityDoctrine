@@ -1,40 +1,40 @@
 {
-  "name": "grand-media/security-doctrine",
-  "description": "GrandMedia SecurityDoctrine",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Grand Media s.r.o.",
-      "email": "vesely@grandmedia.cz",
-      "homepage": "https://www.grandmedia.cz"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/GrandMedia/SecurityDoctrine/issues"
-  },
-  "require": {
-    "php": ">=7.1",
-    "doctrine/orm": "^2.5",
-    "grand-media/security": "@dev",
-    "kdyby/events": "^3.1",
-    "kdyby/doctrine": "^3.2",
-    "nette/application": "^2.4",
-    "nette/di": "^2.4"
-  },
-  "require-dev": {
-    "grand-media/coding-standard": "^1.0",
-    "nette/bootstrap": "^2.4",
-    "nette/tester": "~1.7",
-    "tracy/tracy": "^2.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "GrandMedia\\SecurityDoctrine\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "GrandMediaTests\\": "tests/"
-    }
-  }
+	"name": "grand-media/security-doctrine",
+	"description": "GrandMedia SecurityDoctrine",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Grand Media s.r.o.",
+			"email": "vesely@grandmedia.cz",
+			"homepage": "https://www.grandmedia.cz"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/GrandMedia/SecurityDoctrine/issues"
+	},
+	"require": {
+		"php": ">=7.1",
+		"doctrine/orm": "^2.5",
+		"grand-media/security": "@dev",
+		"kdyby/events": "^3.1",
+		"kdyby/doctrine": "^3.2",
+		"nette/application": "^2.4",
+		"nette/di": "^2.4"
+	},
+	"require-dev": {
+		"grand-media/coding-standard": "^1.0",
+		"nette/bootstrap": "^2.4",
+		"nette/tester": "~1.7",
+		"tracy/tracy": "^2.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"GrandMedia\\SecurityDoctrine\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"GrandMediaTests\\": "tests/"
+		}
+	}
 }
