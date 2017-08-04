@@ -8,7 +8,7 @@ use GrandMediaTests\SecurityDoctrine\Authentication\Mocks\Identity;
 use GrandMediaTests\SecurityDoctrine\Authentication\Mocks\UserStorage;
 use Tester\Assert;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../bootstrap.php';
 
 /**
  * @testCase

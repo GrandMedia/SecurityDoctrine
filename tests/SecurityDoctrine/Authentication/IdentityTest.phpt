@@ -5,7 +5,7 @@ namespace GrandMediaTests\SecurityDoctrine\Authentication;
 use GrandMediaTests\SecurityDoctrine\Authentication\Mocks\Identity;
 use Tester\Assert;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../bootstrap.php';
 
 /**
  * @testCase
