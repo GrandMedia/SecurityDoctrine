@@ -2,10 +2,11 @@
 
 namespace GrandMedia\SecurityDoctrine\DI;
 
+use Contributte\EventDispatcher\DI\EventDispatcherExtension;
+use Contributte\Events\Bridges\Application\DI\EventApplicationBridgeExtension;
 use GrandMedia\Security\DI\SecurityExtension;
 use GrandMedia\SecurityDoctrine\Authentication\AutomaticLogoutListener;
 use Kdyby\Doctrine\DI\OrmExtension;
-use Kdyby\Events\DI\EventsExtension;
 use Nette\Utils\AssertionException;
 
 final class SecurityDoctrineExtension extends \Nette\DI\CompilerExtension implements \Kdyby\Doctrine\DI\IEntityProvider
@@ -16,13 +17,17 @@ final class SecurityDoctrineExtension extends \Nette\DI\CompilerExtension implem
 		$containerBuilder = $this->getContainerBuilder();
 
 		$containerBuilder->addDefinition($this->prefix('automaticLogoutListener'))
-			->setClass(AutomaticLogoutListener::class)
-			->addTag(EventsExtension::TAG_SUBSCRIBER);
+			->setClass(AutomaticLogoutListener::class);
 	}
 
 	public function beforeCompile(): void
 	{
-		foreach ([SecurityExtension::class, OrmExtension::class, EventsExtension::class] as $extension) {
+		foreach ([
+					 SecurityExtension::class,
+					 OrmExtension::class,
+					 EventDispatcherExtension::class,
+					 EventApplicationBridgeExtension::class,
+				 ] as $extension) {
 			if (\count($this->compiler->getExtensions($extension)) === 0) {
 				throw new AssertionException(\sprintf('Please register the required %s to Compiler.', $extension));
 			}

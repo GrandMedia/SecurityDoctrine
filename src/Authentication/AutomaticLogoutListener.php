@@ -2,10 +2,11 @@
 
 namespace GrandMedia\SecurityDoctrine\Authentication;
 
+use Contributte\Events\Bridges\Application\Event\StartupEvent;
 use Doctrine\ORM\EntityNotFoundException;
 use GrandMedia\Security\Authentication\AuthenticationManager;
 
-final class AutomaticLogoutListener implements \Kdyby\Events\Subscriber
+final class AutomaticLogoutListener implements \Contributte\EventDispatcher\EventSubscriber
 {
 
 	/** @var \GrandMedia\Security\Authentication\AuthenticationManager */
@@ -14,6 +15,16 @@ final class AutomaticLogoutListener implements \Kdyby\Events\Subscriber
 	public function __construct(AuthenticationManager $authenticationManager)
 	{
 		$this->authenticationManager = $authenticationManager;
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public static function getSubscribedEvents(): array
+	{
+		return [
+			StartupEvent::NAME => 'check',
+		];
 	}
 
 	public function check(): void
@@ -27,16 +38,6 @@ final class AutomaticLogoutListener implements \Kdyby\Events\Subscriber
 		} catch (EntityNotFoundException $ex) {
 			$this->authenticationManager->logout(true);
 		}
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getSubscribedEvents(): array
-	{
-		return [
-			'Nette\Application\Application::onStartup' => 'check',
-		];
 	}
 
 }
